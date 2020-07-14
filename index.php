@@ -4,10 +4,13 @@
     </head>
 
     <body>
+    <h1 style="text-align:center;">Contact List</h1><br />
+    <h3 style="text-align:center;">ListView</h3>
+    <hr size="2px" align="center" width="100%">
     <?php require_once('connect.php'); ?>
     <?php 
         if(isset($_POST["col"]) && isset($_POST["search"])){ //如果有post資料會進行搜尋
-            $sqlSelect = "select * from ListView where " . $_POST["col"] . " Like '%" . $_POST["search"] . "%'";
+            $sqlSelect = "select * from ListView where " . $_POST["col"] . " Like '%" . addslashes($_POST["search"]) . "%'";
             $result = $conn->query($sqlSelect);
         }else{ //沒有post資料會列出所有
             $sqlSelect = "select * from ListView";
@@ -71,6 +74,7 @@
                         <?php }} ?>
             </table>
             
+            <hr size="2px" align="center" width="100%">
             <p style="text-align:center;">
                 <input type ="button" onclick="javascript:location.href='AddRecord.php'" value="Add Record"></input>
                 <?php if(isset($_POST["col"]) && isset($_POST["search"])){ ?>
@@ -84,8 +88,3 @@
 
 </html>
 
-
-<?php 
-
-
-?>
