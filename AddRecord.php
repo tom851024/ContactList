@@ -2,10 +2,10 @@
     <head>
         <title>Add Page</title>
     </head>
-
+<!-- 新增資料頁面 -->
     <body>
         <form action="Insert.php" method="POST">
-            <table>
+            <table border="1">
                 <tr>
                     <td>Name</td>
                     <td><input type="text" name="Name" required="required" maxLength="15" /></td>

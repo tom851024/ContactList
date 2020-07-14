@@ -1,5 +1,6 @@
 <?php require_once('connect.php'); ?>
 <?php 
+//刪除通訊錄資料
     $sqlDelete = "Delete from ListView where Id='" . $_POST["Id"] . "'";
     $conn->query($sqlDelete);
     echo "資料已刪除";

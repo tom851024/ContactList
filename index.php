@@ -1,16 +1,15 @@
 <html>
     <head>
         <title>Index Page</title>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     </head>
 
     <body>
     <?php require_once('connect.php'); ?>
     <?php 
-        if(isset($_POST["col"]) && isset($_POST["search"])){
+        if(isset($_POST["col"]) && isset($_POST["search"])){ //如果有post資料會進行搜尋
             $sqlSelect = "select * from ListView where " . $_POST["col"] . " Like '%" . $_POST["search"] . "%'";
             $result = $conn->query($sqlSelect);
-        }else{
+        }else{ //沒有post資料會列出所有
             $sqlSelect = "select * from ListView";
             $result = $conn->query($sqlSelect);
         }    
@@ -48,7 +47,7 @@
                 ?>
                         <tr>
                             <td> <?php 
-                            $id=str_pad($row["Id"],3,"0",STR_PAD_LEFT);
+                            $id=str_pad($row["Id"],3,"0",STR_PAD_LEFT); //將ID補成3位數 前面補0
                             echo $id;
                             ?></td>
                             <td> <?php echo $row["Name"]; ?></td>

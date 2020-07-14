@@ -8,13 +8,14 @@ if(isset($result->num_rows)){
 $id=str_pad($row["Id"],3,"0",STR_PAD_LEFT);
 ?>
 <html>
+<!-- 編輯資料頁面-->
     <head>
-        <title>Add Page</title>
+        <title>Edit Page</title>
     </head>
 
     <body>
         <form action="Update.php" method="POST">
-            <table>
+            <table border="1">
                 <tr>
                     <td>Id</td>
                     <td><input type="text" disabled="disabled" maxLength="15" value="<?php echo $id ?>" /></td>
@@ -30,8 +31,8 @@ $id=str_pad($row["Id"],3,"0",STR_PAD_LEFT);
                     <td>Gender</td>
                     <td>
                         <?php if($row["Gender"] == "Male"){ ?>
-                            <input  type="radio" name="sex" value="Male" checked>Male
-                            <input  type="radio" name="sex" value="Female">Female
+                            <input type="radio" name="sex" value="Male" checked>Male
+                            <input type="radio" name="sex" value="Female">Female
                         <?php } ?>
 
                         <?php if($row["Gender"] == "Female"){ ?>
